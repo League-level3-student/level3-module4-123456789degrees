@@ -56,16 +56,22 @@ public class _01_IntroToQueue {
         // 5. Print and remove a random number of elements, from 1 to 5 elements,
         //    from the front of the Queue. Example:
         //    "removing 3 elements from Queue: 25 57 2"
-    	int random = new Random().nextInt(5) + 1;
-    	String s = "Removing " + random + " elements from Queue: ";
-    	for (int i = 0; i < random; i++) {
-    		s += queue.remove() + ", ";
+    	while (stack.size() != 0 && queue.size() != 0) {
+    		int random = new Random().nextInt(5) + 1;
+        	String s = "Removing " + random + " elements from Queue: ";
+        	for (int i = 0; i < random; i++) {
+        		s += queue.remove() + " ";
+        	}
+        	System.out.println(s);
+            // 6. Pop off as many elements from the stack to fill the Queue with 5
+            //    elements. If there aren't enough elements in the Stack to fill the 
+            //    queue, fill the queue as much as possible. 
+        	while (queue.size() < 5 && stack.size() > 0) {
+        		Double d = (stack.pop());
+        		queue.add(d);
+        		System.out.println(d);
+        	}
     	}
-    	System.out.println(s);
-        // 6. Pop off as many elements from the stack to fill the Queue with 5
-        //    elements. If there aren't enough elements in the Stack to fill the 
-        //    queue, fill the queue as much as possible. 
-
         // 7. Loop until there are no more elements in either the Stack or Queue
         //    and all the elements are printed
         
