@@ -20,6 +20,8 @@ public class Hangman implements KeyListener {
 		new Hangman().run();
 	}
 	public void run() {
+		lives = 10;
+		label.setText("");
 		frame.setVisible(true);
 		frame.setSize(150,75);
 		panel.add(label);
@@ -74,6 +76,15 @@ public class Hangman implements KeyListener {
 			int a = x.indexOf(":");
 			x = x.substring(0, a+1) + " " + lives;
 			label.setText(x);
+		}
+		if (!label.getText().contains("_")) {
+			s = words.pop();
+			lives = 10;
+			label.setText("");
+			for (int i = 0; i < s.length(); i++) {
+				label.setText(label.getText()+"_");
+			}
+			label.setText(label.getText() + " Lives: " + lives);
 		}
 	}
 }

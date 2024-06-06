@@ -17,6 +17,7 @@ public class MazeDisplay extends JPanel{
 
     MazeDisplay(){
         super();
+        maze = MazeMaker.generateMaze(25, 25);
         this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
 
         window = new JFrame();
@@ -26,7 +27,7 @@ public class MazeDisplay extends JPanel{
         window.setVisible(true);
         window.pack();
 
-        maze = MazeMaker.generateMaze(5, 5);
+
         repaint();
     }
 
